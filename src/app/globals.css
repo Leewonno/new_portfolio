@@ -21,6 +21,6 @@ body {
     clip-path: circle(0px at var(--x) var(--y));
   }
   to {
-    clip-path: circle(150vmax at var(--x) var(--y));
+    clip-path: circle(125vmax at var(--x) var(--y));
   }
 }

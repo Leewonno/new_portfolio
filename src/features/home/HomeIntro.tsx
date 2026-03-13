@@ -8,7 +8,7 @@ import logo_4 from "@/assets/images/logo_letter_4.svg";
 import logo_5 from "@/assets/images/logo_letter_5.svg";
 import { HomeBackgroundDefault } from "./components/HomeBackgroundDefault";
 import { HomeBackgroundTheme } from "./components/HomeBackgroundTheme";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const LOGO_LETTERS = [
   { src: logo_1, id: "n", title: "NMIXX" },
@@ -18,12 +18,20 @@ const LOGO_LETTERS = [
   { src: logo_5, id: "x2", title: "NMIXX" },
 ];
 
+const ID_TO_BG_IDX: Record<string, number> = {
+  n: 1,
+  m: 2,
+  i: 3,
+  x1: 4,
+  x2: 5,
+};
+
 const BG_COLORS = [
   "bg-[linear-gradient(to_bottom,#080810_0%,#0D1A14_50%,#0A2820_100%)]", // AD MARE
   "bg-[linear-gradient(160deg,#8AAEE8_0%,#6B82D4_40%,#5060B8_100%)]", // Blue Valentine
+  "bg-[linear-gradient(135deg,#0A0C18_0%,#141E2C_55%,#0A1820_100%)]", // Fe3O4: FORWARD
   "bg-[linear-gradient(to_bottom,#9AAAB8_0%,#708090_45%,#383848_100%)]", // Fe3O4: STICK OUT
   "bg-[linear-gradient(to_bottom,#5AAEE0_0%,#82C0E8_50%,#B8D8F0_100%)]", // exprego
-  "bg-[linear-gradient(135deg,#0A0C18_0%,#141E2C_55%,#0A1820_100%)]", // Fe3O4: FORWARD
   "bg-[linear-gradient(to_top,#F0C010_0%,#E06020_30%,#C03018_60%,#6A0808_100%)]", // ENTWURF
 ];
 
@@ -34,27 +42,20 @@ export function HomeIntro() {
     x: 0,
     y: 0,
   });
+  const isAnimating = useRef(false);
 
   const handleClick = (e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
+    if (isAnimating.current) return;
 
-    let bgIdx: number = 0;
+    const rect = e.currentTarget.getBoundingClientRect();
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
+    const bgIdx = ID_TO_BG_IDX[e.currentTarget.id] ?? 0;
 
-    const id = e.currentTarget.id;
-
-    if (id === "n") {
-      bgIdx = 1;
-    } else if (id === "m") {
-      bgIdx = 2;
-    } else if (id === "i") {
-      bgIdx = 3;
-    } else if (id === "x1") {
-      bgIdx = 4;
-    } else if (id === "x2") {
-      bgIdx = 5;
-    }
+    isAnimating.current = true;
+    setTimeout(() => {
+      isAnimating.current = false;
+    }, 1000);
 
     setCirclePos({ x, y });
     setPrevBgIndex(bgIndex);
@@ -69,7 +70,7 @@ export function HomeIntro() {
             <Image
               key={`logo_letters_${v.id}`}
               src={v.src}
-              className="h-75 w-auto drop-shadow-[0_0_5px_white] cursor-pointer select-none hover:drop-shadow-[0_0_20px_white] transition duration-300"
+              className="h-75 w-auto drop-shadow-[0_0_5px_white] cursor-pointer select-none hover:drop-shadow-[0_0_20px_white] transition duration-400"
               alt="logo_letters"
               title={v.title}
               id={v.id}
