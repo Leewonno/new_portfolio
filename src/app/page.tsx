@@ -1,5 +1,10 @@
-import { HomeIntro } from "@/features";
+import { HomeIntro, HomePortfolio } from "@/features";
 
 export default function Home() {
-  return <HomeIntro />;
+  return (
+    <>
+      <HomeIntro />
+      <HomePortfolio />
+    </>
+  );
 }

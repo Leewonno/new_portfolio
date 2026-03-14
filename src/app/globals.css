@@ -16,6 +16,30 @@ body {
   font-family: "Pretendard", sans-serif;
 }
 
+@keyframes particle-float-a {
+  0%   { transform: translate(-50%, -50%) rotate(var(--r)) translate(0px, 0px); }
+  25%  { transform: translate(-50%, -50%) rotate(var(--r)) translate(30px, -40px); }
+  50%  { transform: translate(-50%, -50%) rotate(var(--r)) translate(-20px, -60px); }
+  75%  { transform: translate(-50%, -50%) rotate(var(--r)) translate(-40px, -25px); }
+  100% { transform: translate(-50%, -50%) rotate(var(--r)) translate(0px, 0px); }
+}
+
+@keyframes particle-float-b {
+  0%   { transform: translate(-50%, -50%) rotate(var(--r)) translate(0px, 0px); }
+  30%  { transform: translate(-50%, -50%) rotate(var(--r)) translate(-35px, -50px); }
+  60%  { transform: translate(-50%, -50%) rotate(var(--r)) translate(25px, -70px); }
+  80%  { transform: translate(-50%, -50%) rotate(var(--r)) translate(45px, -20px); }
+  100% { transform: translate(-50%, -50%) rotate(var(--r)) translate(0px, 0px); }
+}
+
+@keyframes particle-float-c {
+  0%   { transform: translate(-50%, -50%) rotate(var(--r)) translate(0px, 0px); }
+  20%  { transform: translate(-50%, -50%) rotate(var(--r)) translate(20px, -55px); }
+  50%  { transform: translate(-50%, -50%) rotate(var(--r)) translate(-30px, -80px); }
+  70%  { transform: translate(-50%, -50%) rotate(var(--r)) translate(-50px, -35px); }
+  100% { transform: translate(-50%, -50%) rotate(var(--r)) translate(0px, 0px); }
+}
+
 @keyframes circle-reveal {
   from {
     clip-path: circle(0px at var(--x) var(--y));

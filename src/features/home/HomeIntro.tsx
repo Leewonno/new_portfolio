@@ -14,7 +14,7 @@ import ship from "@/assets/images/ship.svg";
 import star from "@/assets/images/star.svg";
 import { HomeBackgroundDefault } from "./components/HomeBackgroundDefault";
 import { HomeBackgroundTheme } from "./components/HomeBackgroundTheme";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const LOGO_LETTERS = [
   { src: logo_1, id: "n", title: "NMIXX" },
@@ -33,7 +33,7 @@ const ID_TO_BG_IDX: Record<string, number> = {
 };
 
 const BG_COLORS = [
-  "bg-[linear-gradient(to_bottom,#080810_0%,#0D1A14_50%,#0A2820_100%)]", // AD MARE
+  "bg-[linear-gradient(to_bottom,#080810_0%,#04100d_100%)]", // AD MARE
   "bg-[linear-gradient(160deg,#8AAEE8_0%,#6B82D4_40%,#5060B8_100%)]", // Blue Valentine
   "bg-[linear-gradient(135deg,#0A0C18_0%,#141E2C_55%,#0A1820_100%)]", // Fe3O4: FORWARD
   "bg-[linear-gradient(to_bottom,#9AAAB8_0%,#708090_45%,#383848_100%)]", // Fe3O4: STICK OUT
@@ -51,6 +51,9 @@ export function HomeIntro() {
     y: 0,
   });
   const isAnimating = useRef(false);
+  const scrollYRef = useRef(0);
+  const scrollDownButtonRef = useRef<HTMLButtonElement>(null);
+  const ticking = useRef(false);
 
   const handleClick = (e: React.MouseEvent) => {
     if (isAnimating.current) return;
@@ -70,15 +73,54 @@ export function HomeIntro() {
     setBgIndex(bgIdx);
   };
 
+  const handleNextSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  useEffect(() => {
+    const handle = () => {
+      scrollYRef.current = window.scrollY;
+
+      if (!ticking.current) {
+        ticking.current = true;
+
+        requestAnimationFrame(() => {
+          const buttonRef = scrollDownButtonRef.current;
+          if (!buttonRef) return;
+
+          const scroll = scrollYRef.current;
+          const height = window.innerHeight;
+
+          if (scroll >= height / 2) {
+            buttonRef.style.opacity = "0";
+          } else {
+            buttonRef.style.opacity = "1";
+          }
+
+          ticking.current = false;
+        });
+      }
+    };
+
+    window.addEventListener("scroll", handle);
+
+    return () => {
+      window.removeEventListener("scroll", handle);
+    };
+  }, []);
+
   return (
     <div className="w-full h-screen flex justify-center items-center relative">
-      <div className="flex gap-16">
+      <div className="flex gap-12">
         {LOGO_LETTERS.map((v) => {
           return (
             <Image
               key={`logo_letters_${v.id}`}
               src={v.src}
-              className="h-70 w-auto drop-shadow-[0_0_5px_white] cursor-pointer select-none hover:drop-shadow-[0_0_20px_white] transition duration-400"
+              className="h-50 w-auto drop-shadow-[0_0_5px_white] cursor-pointer select-none hover:drop-shadow-[0_0_20px_white] transition duration-400"
               alt="logo_letters"
               title={v.title}
               id={v.id}
@@ -107,6 +149,29 @@ export function HomeIntro() {
           } as React.CSSProperties
         }
       />
+      <button
+        type="button"
+        ref={scrollDownButtonRef}
+        onClick={() => handleNextSection("portfolio")}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 will-change-transform hover:text-white/90 transition duration-300 cursor-pointer"
+        aria-label="Scroll Down to Next Section"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="36"
+          height="36"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="animate-bounce"
+          aria-hidden="true"
+        >
+          <path d="M6 9l6 6 6-6" />
+        </svg>
+      </button>
     </div>
   );
 }
