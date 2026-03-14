@@ -6,6 +6,12 @@ import logo_2 from "@/assets/images/logo_letter_2.svg";
 import logo_3 from "@/assets/images/logo_letter_3.svg";
 import logo_4 from "@/assets/images/logo_letter_4.svg";
 import logo_5 from "@/assets/images/logo_letter_5.svg";
+import candy from "@/assets/images/candy.svg";
+import dice from "@/assets/images/dice.svg";
+import jellyfish from "@/assets/images/jellyfish.svg";
+import rocket from "@/assets/images/rocket.svg";
+import ship from "@/assets/images/ship.svg";
+import star from "@/assets/images/star.svg";
 import { HomeBackgroundDefault } from "./components/HomeBackgroundDefault";
 import { HomeBackgroundTheme } from "./components/HomeBackgroundTheme";
 import { useRef, useState } from "react";
@@ -34,6 +40,8 @@ const BG_COLORS = [
   "bg-[linear-gradient(to_bottom,#5AAEE0_0%,#82C0E8_50%,#B8D8F0_100%)]", // exprego
   "bg-[linear-gradient(to_top,#F0C010_0%,#E06020_30%,#C03018_60%,#6A0808_100%)]", // ENTWURF
 ];
+
+const BG_ICONS = [ship, candy, rocket, star, jellyfish, dice];
 
 export function HomeIntro() {
   const [bgIndex, setBgIndex] = useState<number>(0);
@@ -70,7 +78,7 @@ export function HomeIntro() {
             <Image
               key={`logo_letters_${v.id}`}
               src={v.src}
-              className="h-75 w-auto drop-shadow-[0_0_5px_white] cursor-pointer select-none hover:drop-shadow-[0_0_20px_white] transition duration-400"
+              className="h-70 w-auto drop-shadow-[0_0_5px_white] cursor-pointer select-none hover:drop-shadow-[0_0_20px_white] transition duration-400"
               alt="logo_letters"
               title={v.title}
               id={v.id}
@@ -89,8 +97,9 @@ export function HomeIntro() {
       )}
       {/* 새 배경 — 원 애니메이션으로 위에서 덮음 */}
       <HomeBackgroundTheme
-        key={`${bgIndex}-${circlePos.x}-${circlePos.y}`}
+        key={`${bgIndex}`}
         className={BG_COLORS[bgIndex]}
+        icon={BG_ICONS[bgIndex]}
         style={
           {
             "--x": `${circlePos.x}px`,
