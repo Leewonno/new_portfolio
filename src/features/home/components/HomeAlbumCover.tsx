@@ -26,7 +26,7 @@ export function HomeAlbumCover({ bgIndex }: HomeAlbumCoverProps) {
       <Image
         src={ALBUM_COVERS[bgIndex]}
         alt="album_cover"
-        className="w-50 h-auto rounded-lg shadow-[0px_8px_32px_rgba(0,0,0,0.15)]"
+        className="w-40 h-auto rounded-lg shadow-[0px_8px_32px_rgba(0,0,0,0.15)]"
       />
       <div className="absolute bg-black/60 w-full h-full inset-0 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-80 transition">
         <a
