@@ -113,14 +113,14 @@ export function HomeIntro() {
   }, []);
 
   return (
-    <div className="w-full h-screen flex justify-center items-center relative">
-      <div className="flex gap-12">
+    <div className="w-full h-screen flex flex-col gap-16 justify-center items-center relative">
+      <div className="flex gap-8">
         {LOGO_LETTERS.map((v) => {
           return (
             <Image
               key={`logo_letters_${v.id}`}
               src={v.src}
-              className="h-50 w-auto drop-shadow-[0_0_5px_white] cursor-pointer select-none hover:drop-shadow-[0_0_20px_white] transition duration-400"
+              className="h-25 w-auto drop-shadow-[0_0_5px_white] cursor-pointer select-none hover:drop-shadow-[0_0_10px_white] transition duration-400"
               alt="logo_letters"
               title={v.title}
               id={v.id}
@@ -128,6 +128,9 @@ export function HomeIntro() {
             />
           );
         })}
+      </div>
+      <div className="text-white text-sm p-3 px-4 rounded-4xl select-none bg-[rgba(255,255,255,0.28)] backdrop-blur-lg border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-white">
+        👆 문자를 하나씩 클릭해 보세요
       </div>
       {/* 이전 배경 — 항상 아래에 정적으로 깔림 */}
       {prevBgIndex === 0 ? (
