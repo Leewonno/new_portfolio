@@ -1,75 +1,42 @@
+import blue from "@/assets/images/album/blue.jpg";
+import know from "@/assets/images/album/know.jpg";
+import seethat from "@/assets/images/album/seethat.jpg";
+import exprego from "@/assets/images/album/exprego.jpg";
+import entwurf from "@/assets/images/album/entwurf.jpg";
+import admare from "@/assets/images/album/admare.jpg";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import type { HomeBackgroundProps } from "../model/types";
 
-const FLOAT_ANIMATIONS = [
-  "particle-float-a",
-  "particle-float-b",
-  "particle-float-c",
-];
-
-interface Particle {
-  id: number;
-  x: number;
-  y: number;
-  size: number;
-  rotation: number;
-  opacity: number;
-  animationName: string;
-  animationDuration: number;
-  animationDelay: number;
+interface HomeAlbumCoverProps {
+  bgIndex: number;
 }
 
-export function HomeBackgroundTheme({
-  style,
-  className,
-  icon,
-}: HomeBackgroundProps) {
-  const [particles, setParticles] = useState<Particle[]>([]);
+const ALBUM_COVERS = [admare, blue, know, seethat, exprego, entwurf];
+const ALBUM_LINKS = [
+  "https://www.youtube.com/watch?v=3GWscde8rM8", // o.o
+  "https://www.youtube.com/watch?v=EmeW6li6bbo", // blue valentine
+  "https://www.youtube.com/watch?v=aFrQIJ5cbRc", // know about me
+  "https://www.youtube.com/watch?v=_Q8Jskeps9w", // see that
+  "https://www.youtube.com/watch?v=EDnwWcFpObo", // love me like this
+  "https://www.youtube.com/watch?v=p1bjnyDqI9k", // dice
+];
 
-  useEffect(() => {
-    setParticles(
-      Array.from({ length: 10 }, (_, i) => ({
-        id: i,
-        x: Math.random() * 90 + 5,
-        y: Math.random() * 90 + 5,
-        size: Math.random() * 70 + 40,
-        rotation: Math.random() * 360,
-        opacity: 0.1,
-        animationName: FLOAT_ANIMATIONS[i % FLOAT_ANIMATIONS.length],
-        animationDuration: Math.random() * 4 + 5,
-        animationDelay: Math.random() * -6,
-      })),
-    );
-  }, []);
-
+export function HomeAlbumCover({ bgIndex }: HomeAlbumCoverProps) {
   return (
-    <div
-      className={`${className} w-full h-full fixed inset-0 z-[-1] overflow-hidden animate-[circle-reveal_2s_ease-out_forwards] will-change-[clip-path]`}
-      style={{ ...style, transform: "translateZ(0)" }}
-    >
-      {icon &&
-        particles.map((p) => (
-          <Image
-            key={p.id}
-            src={icon}
-            alt=""
-            width={p.size}
-            height={p.size}
-            style={
-              {
-                position: "absolute",
-                left: `${p.x}%`,
-                top: `${p.y}%`,
-                transform: `translate(-50%, -50%) rotate(${p.rotation}deg)`,
-                opacity: p.opacity,
-                filter: "blur(1px)",
-                animation: `${p.animationName} ${p.animationDuration}s ease-in-out ${p.animationDelay}s infinite`,
-                "--r": `${p.rotation}deg`,
-              } as React.CSSProperties
-            }
-          />
-        ))}
+    <div className="group fixed bottom-28 right-8 rounded-xl select-none bg-[rgba(255,255,255,0.12)] backdrop-blur-lg shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5">
+      <Image
+        src={ALBUM_COVERS[bgIndex]}
+        alt="album_cover"
+        className="w-50 h-auto rounded-lg shadow-[0px_8px_32px_rgba(0,0,0,0.15)]"
+      />
+      <div className="absolute bg-black/60 w-full h-full inset-0 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-80 transition">
+        <a
+          href={ALBUM_LINKS[bgIndex]}
+          target="_blank"
+          className="text-white p-3 cursor-pointer"
+        >
+          ▶
+        </a>
+      </div>
     </div>
   );
 }
