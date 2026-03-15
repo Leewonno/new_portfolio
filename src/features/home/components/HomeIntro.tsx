@@ -15,6 +15,7 @@ import star from "@/assets/images/star.svg";
 import { HomeBackgroundDefault } from "./HomeBackgroundDefault";
 import { HomeBackgroundTheme } from "./HomeBackgroundTheme";
 import { useRef, useState } from "react";
+import { HomeAlbumCover } from "./HomeAlbumCover";
 
 const LOGO_LETTERS = [
   { src: logo_1, id: "n", title: "NMIXX" },
@@ -113,6 +114,7 @@ export function HomeIntro() {
           } as React.CSSProperties
         }
       />
+      <HomeAlbumCover bgIndex={bgIndex} />
     </div>
   );
 }
