@@ -17,7 +17,7 @@ const HomeNavigationButton = forwardRef<
       ref={ref}
       type="button"
       onClick={handleAction}
-      className="transition duration-200 border border-transparent cursor-pointer p-1 rounded-4xl bg-[rgba(255,255,255,0.25)] hover:border-white disabled:cursor-not-allowed"
+      className="transition duration-200 border border-transparent cursor-pointer p-1 rounded-4xl bg-[rgba(255,255,255,0.25)] hover:border-white hover:-translate-y-0.5 disabled:cursor-not-allowed"
       aria-label={`Scroll Down to ${type === "prev" ? "Prev" : "Next"} Section`}
     >
       <svg
