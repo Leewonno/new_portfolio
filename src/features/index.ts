@@ -1,6 +1,7 @@
 // Home
-export { HomeIntro } from "./home/HomeIntro";
-export { HomePortfolio } from "./home/HomePortfolio";
+export { HomeIntro } from "./home/components/HomeIntro";
+export { HomePortfolio } from "./home/components/HomePortfolio";
+export { HomeNavigation } from "./home/components/HomeNavigation";
 
 // Nav
 export { Footer } from "./nav/Footer";

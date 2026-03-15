@@ -12,9 +12,9 @@ import jellyfish from "@/assets/images/jellyfish.svg";
 import rocket from "@/assets/images/rocket.svg";
 import ship from "@/assets/images/ship.svg";
 import star from "@/assets/images/star.svg";
-import { HomeBackgroundDefault } from "./components/HomeBackgroundDefault";
-import { HomeBackgroundTheme } from "./components/HomeBackgroundTheme";
-import { useEffect, useRef, useState } from "react";
+import { HomeBackgroundDefault } from "./HomeBackgroundDefault";
+import { HomeBackgroundTheme } from "./HomeBackgroundTheme";
+import { useRef, useState } from "react";
 
 const LOGO_LETTERS = [
   { src: logo_1, id: "n", title: "NMIXX" },
@@ -51,9 +51,6 @@ export function HomeIntro() {
     y: 0,
   });
   const isAnimating = useRef(false);
-  const scrollYRef = useRef(0);
-  const scrollDownButtonRef = useRef<HTMLButtonElement>(null);
-  const ticking = useRef(false);
 
   const handleClick = (e: React.MouseEvent) => {
     if (isAnimating.current) return;
@@ -73,47 +70,11 @@ export function HomeIntro() {
     setBgIndex(bgIdx);
   };
 
-  const handleNextSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  useEffect(() => {
-    const handle = () => {
-      scrollYRef.current = window.scrollY;
-
-      if (!ticking.current) {
-        ticking.current = true;
-
-        requestAnimationFrame(() => {
-          const buttonRef = scrollDownButtonRef.current;
-          if (!buttonRef) return;
-
-          const scroll = scrollYRef.current;
-          const height = window.innerHeight;
-
-          if (scroll >= height / 2) {
-            buttonRef.style.opacity = "0";
-          } else {
-            buttonRef.style.opacity = "1";
-          }
-
-          ticking.current = false;
-        });
-      }
-    };
-
-    window.addEventListener("scroll", handle);
-
-    return () => {
-      window.removeEventListener("scroll", handle);
-    };
-  }, []);
-
   return (
-    <div className="w-full h-screen flex flex-col gap-16 justify-center items-center relative">
+    <div
+      id="intro"
+      className="w-full h-screen flex flex-col gap-16 justify-center items-center relative"
+    >
       <div className="flex gap-8">
         {LOGO_LETTERS.map((v) => {
           return (
@@ -152,29 +113,6 @@ export function HomeIntro() {
           } as React.CSSProperties
         }
       />
-      <button
-        type="button"
-        ref={scrollDownButtonRef}
-        onClick={() => handleNextSection("portfolio")}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 will-change-transform hover:text-white/90 transition duration-300 cursor-pointer"
-        aria-label="Scroll Down to Next Section"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="36"
-          height="36"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="animate-bounce"
-          aria-hidden="true"
-        >
-          <path d="M6 9l6 6 6-6" />
-        </svg>
-      </button>
     </div>
   );
 }
