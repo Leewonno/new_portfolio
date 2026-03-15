@@ -33,7 +33,7 @@ export function HomeBackgroundTheme({
         id: i,
         x: Math.random() * 90 + 5,
         y: Math.random() * 90 + 5,
-        size: Math.random() * 70 + 20,
+        size: Math.random() * 70 + 40,
         rotation: Math.random() * 360,
         opacity: 0.1,
         animationName: FLOAT_ANIMATIONS[i % FLOAT_ANIMATIONS.length],
