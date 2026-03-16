@@ -44,6 +44,15 @@ const BG_COLORS = [
 
 const BG_ICONS = [ship, candy, rocket, star, jellyfish, dice];
 
+const BG_MESSAGES = [
+  "👆 문자를 하나씩 클릭해 보세요",
+  "안녕하세요.",
+  "걸그룹 엔믹스를 좋아하는 개발자입니다.",
+  "무대에서 빛나는 엔믹스처럼",
+  "코드를 통해 사용자에게 즐거움을 주는",
+  "프론트엔드 엔지니어가 되겠습니다.",
+];
+
 export function HomeIntro() {
   const [bgIndex, setBgIndex] = useState<number>(0);
   const [prevBgIndex, setPrevBgIndex] = useState<number>(0);
@@ -90,9 +99,15 @@ export function HomeIntro() {
           );
         })}
       </div>
-      <div className="text-white text-sm p-3 px-4 rounded-4xl select-none bg-[rgba(255,255,255,0.28)] backdrop-blur-sm border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-white">
-        👆 문자를 하나씩 클릭해 보세요
-      </div>
+      {bgIndex === 0 ? (
+        <div className="text-white text-sm p-3 px-4 rounded-4xl select-none bg-[rgba(255,255,255,0.28)] backdrop-blur-sm border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-white">
+          {BG_MESSAGES[0]}
+        </div>
+      ) : (
+        <div className="text-white text-sm p-3 px-4 select-none animate-[slide-down_0.3s_ease-out_forwards]">
+          {BG_MESSAGES[bgIndex]}
+        </div>
+      )}
 
       {/* 이전 배경 — 항상 아래에 정적으로 깔림 */}
       {prevBgIndex === 0 ? (
