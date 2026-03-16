@@ -1,5 +1,7 @@
 # 포트폴리오
 
+![image](https://github.com/user-attachments/assets/f04a0fb0-c932-40e8-9a19-b13cd58889fc)
+
 ## 💾 프로젝트 개요
 
 Next.js 기반의 포트폴리오 사이트입니다. 인터랙티브한 UI와 애니메이션을 통해 저를 소개합니다.
