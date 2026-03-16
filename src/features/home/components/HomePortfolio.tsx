@@ -1,11 +1,23 @@
+import { PortfolioContact } from "./portfolio/PortfolioContact";
+import { PortfolioEducation } from "./portfolio/PortfolioEducation";
+import { PortfolioExperience } from "./portfolio/PortfolioExperience";
+import { PortfolioIntro } from "./portfolio/PortfolioIntro";
+import { PortfolioProjects } from "./portfolio/PortfolioProjects";
+import { PortfolioTechStack } from "./portfolio/PortfolioTechStack";
+
 export function HomePortfolio() {
   return (
     <div
       className="w-full h-screen flex flex-col items-center justify-center"
       id="portfolio"
     >
-      <div className="w-150 p-4 text-white rounded-xl bg-[rgba(255,255,255,0.08)] backdrop-blur-lg border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)]">
-        내용
+      <div className="w-150 p-8 text-white rounded-xl bg-[rgba(255,255,255,0.08)] backdrop-blur-lg border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0,0,0,0.15)] flex flex-col gap-8">
+        <PortfolioIntro />
+        <PortfolioTechStack />
+        <PortfolioExperience />
+        <PortfolioEducation />
+        <PortfolioProjects />
+        <PortfolioContact />
       </div>
     </div>
   );
