@@ -1,3 +1,5 @@
+"use client";
+
 import blue from "@/assets/images/album/blue.jpg";
 import know from "@/assets/images/album/know.jpg";
 import seethat from "@/assets/images/album/seethat.jpg";
@@ -5,6 +7,8 @@ import exprego from "@/assets/images/album/exprego.jpg";
 import entwurf from "@/assets/images/album/entwurf.jpg";
 import admare from "@/assets/images/album/admare.jpg";
 import Image from "next/image";
+import { memo } from "react";
+import { useScrollDirection } from "@/hooks/useScrollDirection";
 
 interface HomeAlbumCoverProps {
   bgIndex: number;
@@ -20,9 +24,16 @@ const ALBUM_LINKS = [
   "https://www.youtube.com/watch?v=p1bjnyDqI9k", // dice
 ];
 
-export function HomeAlbumCover({ bgIndex }: HomeAlbumCoverProps) {
+export const HomeAlbumCover = memo(function HomeAlbumCover({
+  bgIndex,
+}: HomeAlbumCoverProps) {
+  const translateY = useScrollDirection();
+
   return (
-    <div className="group fixed bottom-28 right-8 rounded-xl select-none bg-[rgba(255,255,255,0.12)] backdrop-blur-lg shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5">
+    <div
+      className="group fixed bottom-28 right-8 rounded-xl select-none bg-[rgba(255,255,255,0.12)] backdrop-blur-lg shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5 ease-in-out"
+      style={{ transform: `translateY(${translateY}px)` }}
+    >
       <Image
         src={ALBUM_COVERS[bgIndex]}
         alt="album_cover"
@@ -39,4 +50,4 @@ export function HomeAlbumCover({ bgIndex }: HomeAlbumCoverProps) {
       </div>
     </div>
   );
-}
+});

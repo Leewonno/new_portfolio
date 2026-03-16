@@ -1,23 +1,25 @@
 "use client";
 
-import { forwardRef, useRef, useState } from "react";
+import { useState } from "react";
+import { useScrollDirection } from "@/hooks/useScrollDirection";
 
 interface HomeNavigationButtonProps {
-  ref: HTMLButtonElement;
   type: "prev" | "next";
+  disabled: boolean;
   handleAction: () => void;
 }
 
-const HomeNavigationButton = forwardRef<
-  HTMLButtonElement,
-  HomeNavigationButtonProps
->(({ type, handleAction }, ref) => {
+function HomeNavigationButton({
+  type,
+  disabled,
+  handleAction,
+}: HomeNavigationButtonProps) {
   return (
     <button
-      ref={ref}
       type="button"
       onClick={handleAction}
-      className="transition duration-200 border border-transparent cursor-pointer p-1 rounded-4xl bg-[rgba(255,255,255,0.25)] hover:border-white disabled:cursor-not-allowed"
+      disabled={disabled}
+      className="transition duration-200 border border-transparent cursor-pointer p-1 rounded-4xl bg-[rgba(255,255,255,0.25)] hover:border-white hover:-translate-y-0.5 disabled:cursor-not-allowed"
       aria-label={`Scroll Down to ${type === "prev" ? "Prev" : "Next"} Section`}
     >
       <svg
@@ -37,30 +39,23 @@ const HomeNavigationButton = forwardRef<
       </svg>
     </button>
   );
-});
+}
 
 export function HomeNavigation() {
-  const prevRef = useRef<HTMLButtonElement | null>(null);
-  const nextRef = useRef<HTMLButtonElement | null>(null);
   const [section, setSection] = useState<"portfolio" | "intro">("intro");
+  const translateY = useScrollDirection(5, 2, 300, 100);
 
   const handleNextSection = (type: "prev" | "next") => {
     let id: "portfolio" | "intro" | null = null;
 
-    if (type === "prev") {
-      if (section === "portfolio") {
-        id = "intro";
-        setSection("intro");
-      }
-    } else {
-      if (section === "intro") {
-        id = "portfolio";
-        setSection("portfolio");
-      }
+    if (type === "prev" && section === "portfolio") {
+      id = "intro";
+      setSection("intro");
+    } else if (type === "next" && section === "intro") {
+      id = "portfolio";
+      setSection("portfolio");
     }
 
-    if (prevRef.current) prevRef.current.disabled = id === "intro";
-    if (nextRef.current) nextRef.current.disabled = id === "portfolio";
     if (!id) return;
 
     const el = document.getElementById(id);
@@ -70,15 +65,18 @@ export function HomeNavigation() {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 flex gap-2 text-white text-sm p-2 rounded-4xl select-none bg-[rgba(255,255,255,0.12)] backdrop-blur-lg border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200">
+    <div
+      className="fixed bottom-8 right-8 flex gap-2 text-white text-sm p-2 rounded-4xl select-none bg-[rgba(255,255,255,0.12)] backdrop-blur-lg border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0,0,0,0.15)] transition-transform duration-300 ease-in-out"
+      style={{ transform: `translateY(${translateY}px)` }}
+    >
       <HomeNavigationButton
-        ref={prevRef}
         type="prev"
+        disabled={section === "intro"}
         handleAction={() => handleNextSection("prev")}
       />
       <HomeNavigationButton
-        ref={nextRef}
         type="next"
+        disabled={section === "portfolio"}
         handleAction={() => handleNextSection("next")}
       />
     </div>
