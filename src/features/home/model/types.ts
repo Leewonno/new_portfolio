@@ -5,3 +5,15 @@ export interface HomeBackgroundProps {
   className?: string;
   icon?: StaticImageData;
 }
+
+export interface ProjectDetail {
+  name: string;
+  description: string;
+  detail?: string;
+  techStack?: string[];
+  role?: string;
+  period?: string;
+  link?: string;
+  github?: string;
+  works?: string[];
+}
