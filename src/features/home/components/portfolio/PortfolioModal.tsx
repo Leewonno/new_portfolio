@@ -2,18 +2,7 @@
 
 import * as Dialog from "@radix-ui/react-dialog";
 import { useState } from "react";
-
-export interface ProjectDetail {
-  name: string;
-  description: string;
-  detail?: string;
-  techStack?: string[];
-  role?: string;
-  period?: string;
-  link?: string;
-  github?: string;
-  works?: string[];
-}
+import type { ProjectDetail } from "../../model/types";
 
 interface PortfolioModalProps {
   project: ProjectDetail;

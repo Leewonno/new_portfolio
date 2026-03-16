@@ -1,6 +1,7 @@
 "use client";
 
-import { PortfolioModal, type ProjectDetail } from "./PortfolioModal";
+import type { ProjectDetail } from "../../model/types";
+import { PortfolioModal } from "./PortfolioModal";
 
 const PROJECTS: ProjectDetail[] = [
   {
@@ -44,6 +45,7 @@ const PROJECTS: ProjectDetail[] = [
       "AWS Lambda 서비스를 이용한 작품 추천 로직 실행 환경 구축",
       "JQuery를 이용한 프론트엔드 개발",
     ],
+    link: "https://novelpedia.com/",
   },
 ];
 
