@@ -45,7 +45,7 @@ const BG_COLORS = [
 const BG_ICONS = [ship, candy, rocket, star, jellyfish, dice];
 
 const BG_MESSAGES = [
-  "👆 문자를 하나씩 클릭해 보세요",
+  "👆 문자를 순서대로 클릭해 보세요",
   "안녕하세요.",
   "걸그룹 엔믹스를 좋아하는 개발자입니다.",
   "무대에서 빛나는 엔믹스처럼",
