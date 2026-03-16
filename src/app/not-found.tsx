@@ -12,7 +12,7 @@ const HIDDEN_PROJECTS: ProjectDetail[] = [
     description: "한 줄 설명",
     detail: "상세 설명을 여기에 작성합니다.",
     role: "기획 · 디자인 · 개발 (개인 프로젝트)",
-    period: "2024.01 – 2024.03",
+    period: "2024.01 ~ 2024.03",
     techStack: ["React", "TypeScript", "Tailwind"],
     github: "https://github.com/leewonno/example",
   },
@@ -21,7 +21,7 @@ const HIDDEN_PROJECTS: ProjectDetail[] = [
     description: "한 줄 설명",
     detail: "상세 설명을 여기에 작성합니다.",
     role: "프론트엔드 개발",
-    period: "2023.06 – 2023.09",
+    period: "2023.06 ~ 2023.09",
     techStack: ["Next.js", "TypeScript", "Zustand"],
   },
 ];

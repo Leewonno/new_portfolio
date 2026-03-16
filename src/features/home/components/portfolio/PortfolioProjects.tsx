@@ -6,10 +6,9 @@ const PROJECTS: ProjectDetail[] = [
   {
     name: "노바위키",
 
-    description: "직접 설계하고 개발한 위키 사이트",
+    description: "함께 만들어가는 위키 사이트",
     detail:
-      "직접 설계하고 개발한 위키 사이트입니다. 직접 개발한 마크다운 에디터를 적용하였습니다.",
-    role: "기획 · 디자인 · 개발 (개인 프로젝트)",
+      "함께 만들어가는 위키 사이트입니다. 직접 개발한 마크다운 에디터를 적용하였습니다.",
     techStack: [
       "Next.js",
       "TypeScript",
@@ -18,21 +17,32 @@ const PROJECTS: ProjectDetail[] = [
       "Supabase",
       "Tailwind",
     ],
+    link: "https://novawiki.vercel.app",
+    github: "https://github.com/Leewonno/novawiki",
+    works: [
+      "위키 시스템 구현",
+      "마크다운 에디터 구현",
+      "마크다운 파싱 라이브러리 remark와 호환되는 마크다운 파서 구현",
+    ],
   },
   {
-    name: "노바위키2",
+    name: "노벨피디아",
 
-    description: "직접 설계하고 개발한 위키 사이트",
-    detail:
-      "직접 설계하고 개발한 위키 사이트입니다. 직접 개발한 마크다운 에디터를 적용하였습니다.",
-    role: "기획 · 디자인 · 개발 (개인 프로젝트)",
+    description: "소설 · 만화를 리뷰하는 위키 사이트",
+    detail: "소설 · 만화 정보를 공유하고 리뷰할 수 있는 위키 사이트 입니다.",
     techStack: [
-      "Next.js",
-      "TypeScript",
-      "Zustand",
-      "Tanstack Query",
-      "Supabase",
-      "Tailwind",
+      "JavaScript",
+      "JQuey",
+      "Firebase",
+      "Python",
+      "Scikit-Learn",
+      "AWS",
+    ],
+    works: [
+      "위키 시스템 구현",
+      "Scikit-Learn 기반 아이템 기반 협업 필터링을 통한 작품 추천 로직 개발",
+      "AWS Lambda 서비스를 이용한 작품 추천 로직 실행 환경 구축",
+      "JQuery를 이용한 프론트엔드 개발",
     ],
   },
 ];
@@ -43,13 +53,13 @@ export function PortfolioProjects() {
       <h2 className="text-xs text-white/40 tracking-widest uppercase">
         Projects
       </h2>
-      <div className="flex gap-2">
+      <div className="flex flex-wrap gap-2">
         {PROJECTS.map((project) => (
           <PortfolioModal key={project.name} project={project}>
             <button
               type="button"
               suppressHydrationWarning
-              className="w-1/2 text-left p-4 rounded-lg bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.1)] flex items-center justify-between gap-4 cursor-pointer hover:bg-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.2)] transition-colors group"
+              className="w-[calc(50%-4px)] text-left p-4 rounded-lg bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.1)] flex items-center justify-between gap-4 cursor-pointer hover:bg-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.2)] transition-colors group"
             >
               <div className="flex flex-col gap-1">
                 <span className="font-semibold text-white">{project.name}</span>

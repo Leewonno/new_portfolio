@@ -73,7 +73,7 @@ export function HomeIntro() {
   return (
     <div
       id="intro"
-      className="w-full h-screen flex flex-col gap-16 justify-center items-center relative"
+      className="w-full min-h-screen py-20 flex flex-col gap-16 justify-center items-center relative"
     >
       <div className="flex gap-8">
         {LOGO_LETTERS.map((v) => {

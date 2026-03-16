@@ -71,6 +71,31 @@ export function PortfolioContact() {
           </svg>
         </a>
       </div>
+
+      {/* 이력서 다운로드 */}
+      <a
+        href="/resume.pdf"
+        download
+        className="w-fit flex items-center gap-2 px-4 py-2 rounded-lg border border-[rgba(255,255,255,0.12)] text-sm text-white/60 hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" y1="15" x2="12" y2="3" />
+        </svg>
+        이력서
+      </a>
     </div>
   );
 }
