@@ -29,7 +29,7 @@ export function PortfolioExperience() {
               <span className="font-semibold">{exp.company}</span>
               <span className="text-xs text-white/40">{exp.period}</span>
             </div>
-            <span className="text-sm text-white/50">
+            <span className="text-xs sm:text-sm text-white/50">
               {exp.role} · {exp.description}
             </span>
           </div>

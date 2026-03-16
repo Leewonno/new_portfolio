@@ -56,15 +56,14 @@ export function HomeIntro() {
   const handleClick = (e: React.MouseEvent) => {
     if (isAnimating.current) return;
 
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = rect.left + rect.width / 2;
-    const y = rect.top + rect.height / 2;
+    const x = e.clientX;
+    const y = e.clientY;
     const bgIdx = ID_TO_BG_IDX[e.currentTarget.id] ?? 0;
 
     isAnimating.current = true;
     setTimeout(() => {
       isAnimating.current = false;
-    }, 1000);
+    }, 500);
 
     setCirclePos({ x, y });
     setPrevBgIndex(bgIndex);
@@ -74,15 +73,15 @@ export function HomeIntro() {
   return (
     <div
       id="intro"
-      className="w-full h-screen flex flex-col gap-16 justify-center items-center relative"
+      className="w-full min-h-screen py-20 px-5 sm:px-0 flex flex-col gap-16 justify-center items-center relative"
     >
-      <div className="flex gap-8">
+      <div className="flex gap-6 sm:gap-8">
         {LOGO_LETTERS.map((v) => {
           return (
             <Image
               key={`logo_letters_${v.id}`}
               src={v.src}
-              className="h-25 w-auto drop-shadow-[0_0_5px_white] cursor-pointer select-none hover:drop-shadow-[0_0_10px_white] transition duration-400"
+              className="h-20 sm:h-25 w-auto drop-shadow-[0_0_5px_white] cursor-pointer select-none transition duration-400 hover:drop-shadow-[0_0_10px_white]"
               alt="logo_letters"
               title={v.title}
               id={v.id}
@@ -91,9 +90,10 @@ export function HomeIntro() {
           );
         })}
       </div>
-      <div className="text-white text-sm p-3 px-4 rounded-4xl select-none bg-[rgba(255,255,255,0.28)] backdrop-blur-lg border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-white">
+      <div className="text-white text-sm p-3 px-4 rounded-4xl select-none bg-[rgba(255,255,255,0.28)] backdrop-blur-sm border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-white">
         👆 문자를 하나씩 클릭해 보세요
       </div>
+
       {/* 이전 배경 — 항상 아래에 정적으로 깔림 */}
       {prevBgIndex === 0 ? (
         <HomeBackgroundDefault />
@@ -102,6 +102,7 @@ export function HomeIntro() {
           className={`${BG_COLORS[prevBgIndex]} w-full h-full fixed inset-0 z-[-2]`}
         />
       )}
+
       {/* 새 배경 — 원 애니메이션으로 위에서 덮음 */}
       <HomeBackgroundTheme
         key={`${bgIndex}`}

@@ -36,7 +36,7 @@ export function PortfolioTechStack() {
         {TECH_STACK.map((tech, index) => (
           <span
             key={`${tech.name}-${index}`}
-            className={`px-3 py-1 mb-1 text-sm rounded-full border ${CATEGORY_STYLE[tech.category]}`}
+            className={`px-3 py-1 mb-1 text-xs sm:text-sm rounded-full border ${CATEGORY_STYLE[tech.category]}`}
           >
             {tech.name}
           </span>

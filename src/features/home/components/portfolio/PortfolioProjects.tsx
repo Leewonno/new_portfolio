@@ -5,31 +5,83 @@ import { PortfolioModal, type ProjectDetail } from "./PortfolioModal";
 const PROJECTS: ProjectDetail[] = [
   {
     name: "노바위키",
-    description: "직접 설계하고 개발한 위키 사이트",
+
+    description: "함께 만들어가는 위키 사이트",
     detail:
-      "직접 설계하고 개발한 위키 사이트입니다. 사용자가 문서를 작성하고 편집할 수 있으며, 마크다운을 지원합니다.",
-    role: "기획 · 디자인 · 개발 (개인 프로젝트)",
-    techStack: ["Next.js", "TypeScript", "React"],
+      "함께 만들어가는 위키 사이트입니다. 직접 개발한 마크다운 에디터를 적용하였습니다.",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "Zustand",
+      "Tanstack Query",
+      "Supabase",
+      "Tailwind",
+    ],
+    link: "https://novawiki.vercel.app",
+    github: "https://github.com/Leewonno/novawiki",
+    works: [
+      "위키 시스템 구현",
+      "마크다운 에디터 구현",
+      "마크다운 파싱 라이브러리 remark와 호환되는 마크다운 파서 구현",
+    ],
+  },
+  {
+    name: "노벨피디아",
+
+    description: "소설 · 만화를 리뷰하는 위키 사이트",
+    detail: "소설 · 만화 정보를 공유하고 리뷰할 수 있는 위키 사이트 입니다.",
+    techStack: [
+      "JavaScript",
+      "JQuey",
+      "Firebase",
+      "Python",
+      "Scikit-Learn",
+      "AWS",
+    ],
+    works: [
+      "위키 시스템 구현",
+      "Scikit-Learn 기반 아이템 기반 협업 필터링을 통한 작품 추천 로직 개발",
+      "AWS Lambda 서비스를 이용한 작품 추천 로직 실행 환경 구축",
+      "JQuery를 이용한 프론트엔드 개발",
+    ],
   },
 ];
 
 export function PortfolioProjects() {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-4">
       <h2 className="text-xs text-white/40 tracking-widest uppercase">
         Projects
       </h2>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2">
         {PROJECTS.map((project) => (
           <PortfolioModal key={project.name} project={project}>
             <button
               type="button"
-              className="w-full text-left p-4 rounded-lg bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.1)] flex flex-col gap-1 cursor-pointer hover:bg-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.2)] transition-colors"
+              suppressHydrationWarning
+              className="sm:w-[calc(50%-4px)] text-left p-3 sm:p-4 rounded-lg bg-[rgba(255,255,255,0.06)] border border-[rgba(255,255,255,0.1)] flex items-center justify-between gap-4 cursor-pointer hover:bg-[rgba(255,255,255,0.1)] hover:border-[rgba(255,255,255,0.2)] transition-colors group"
             >
-              <span className="font-semibold text-white">{project.name}</span>
-              <span className="text-sm text-white/60">
-                {project.description}
-              </span>
+              <div className="flex flex-col gap-1">
+                <span className="font-semibold text-white">{project.name}</span>
+                <span className="text-xs sm:text-sm text-white/60">
+                  {project.description}
+                </span>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-white/30 shrink-0 group-hover:text-white/60 transition-colors"
+                aria-hidden="true"
+              >
+                <path d="M9 18l6-6-6-6" />
+              </svg>
             </button>
           </PortfolioModal>
         ))}
