@@ -31,13 +31,14 @@ export const HomeAlbumCover = memo(function HomeAlbumCover({
 
   return (
     <div
-      className="group fixed bottom-28 right-8 rounded-xl select-none bg-[rgba(255,255,255,0.12)] backdrop-blur-lg shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5 ease-in-out"
+      className="group fixed bottom-28 right-8 rounded-xl select-none shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5 ease-in-out"
       style={{ transform: `translateY(${translateY}px)` }}
     >
       <Image
         src={ALBUM_COVERS[bgIndex]}
         alt="album_cover"
-        className="w-40 h-auto rounded-lg shadow-[0px_8px_32px_rgba(0,0,0,0.15)]"
+        fetchPriority="high"
+        className="w-40 h-40 object-cover rounded-lg shadow-[0px_8px_32px_rgba(0,0,0,0.15)]"
       />
       <div className="absolute bg-black/60 w-full h-full inset-0 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-80 transition">
         <a

@@ -66,7 +66,7 @@ export function HomeNavigation() {
 
   return (
     <div
-      className="fixed bottom-8 right-8 flex gap-2 text-white text-sm p-2 rounded-4xl select-none bg-[rgba(255,255,255,0.12)] backdrop-blur-lg border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0,0,0,0.15)] transition-transform duration-300 ease-in-out"
+      className="fixed bottom-8 right-8 flex gap-2 text-white text-sm p-2 rounded-4xl select-none bg-[rgba(255,255,255,0.12)] backdrop-blur-sm border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0,0,0,0.15)] transition-transform duration-300 ease-in-out"
       style={{ transform: `translateY(${translateY}px)` }}
     >
       <HomeNavigationButton
