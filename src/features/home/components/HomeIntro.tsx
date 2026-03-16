@@ -53,6 +53,17 @@ const BG_MESSAGES = [
   "프론트엔드 엔지니어가 되겠습니다.",
 ];
 
+function HomeIntroMessage({ index }: { index: number }) {
+  return (
+    <div
+      key={index}
+      className="text-white [text-shadow:0_0px_5px_rgba(255,255,255,0.6)] text-sm p-3 px-4 select-none animate-[slide-down_1s_ease-out_forwards]"
+    >
+      {BG_MESSAGES[index]}
+    </div>
+  );
+}
+
 export function HomeIntro() {
   const [bgIndex, setBgIndex] = useState<number>(0);
   const [prevBgIndex, setPrevBgIndex] = useState<number>(0);
@@ -104,9 +115,7 @@ export function HomeIntro() {
           {BG_MESSAGES[0]}
         </div>
       ) : (
-        <div className="text-white text-sm p-3 px-4 select-none animate-[slide-down_0.3s_ease-out_forwards]">
-          {BG_MESSAGES[bgIndex]}
-        </div>
+        <HomeIntroMessage index={bgIndex} />
       )}
 
       {/* 이전 배경 — 항상 아래에 정적으로 깔림 */}
