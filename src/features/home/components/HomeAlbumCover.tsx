@@ -7,6 +7,7 @@ import exprego from "@/assets/images/album/exprego.jpg";
 import entwurf from "@/assets/images/album/entwurf.jpg";
 import admare from "@/assets/images/album/admare.jpg";
 import Image from "next/image";
+import { memo } from "react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 
 interface HomeAlbumCoverProps {
@@ -23,7 +24,9 @@ const ALBUM_LINKS = [
   "https://www.youtube.com/watch?v=p1bjnyDqI9k", // dice
 ];
 
-export function HomeAlbumCover({ bgIndex }: HomeAlbumCoverProps) {
+export const HomeAlbumCover = memo(function HomeAlbumCover({
+  bgIndex,
+}: HomeAlbumCoverProps) {
   const translateY = useScrollDirection();
 
   return (
@@ -47,4 +50,4 @@ export function HomeAlbumCover({ bgIndex }: HomeAlbumCoverProps) {
       </div>
     </div>
   );
-}
+});

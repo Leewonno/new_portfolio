@@ -29,7 +29,7 @@ export function HomeBackgroundTheme({
 
   useEffect(() => {
     setParticles(
-      Array.from({ length: 10 }, (_, i) => ({
+      Array.from({ length: 6 }, (_, i) => ({
         id: i,
         x: Math.random() * 90 + 5,
         y: Math.random() * 90 + 5,
@@ -45,7 +45,7 @@ export function HomeBackgroundTheme({
 
   return (
     <div
-      className={`${className} w-full h-full fixed inset-0 z-[-1] overflow-hidden animate-[circle-reveal_2s_ease-out_forwards] will-change-[clip-path]`}
+      className={`${className} w-full h-full fixed inset-0 z-[-1] overflow-hidden animate-[circle-reveal_2s_ease-out_forwards] will-change-[clip-path] contain-[paint]`}
       style={{ ...style, transform: "translateZ(0)" }}
     >
       {icon &&
@@ -53,7 +53,7 @@ export function HomeBackgroundTheme({
           <Image
             key={p.id}
             src={icon}
-            alt=""
+            alt="bgIcon"
             width={p.size}
             height={p.size}
             style={
@@ -63,7 +63,8 @@ export function HomeBackgroundTheme({
                 top: `${p.y}%`,
                 transform: `translate(-50%, -50%) rotate(${p.rotation}deg)`,
                 opacity: p.opacity,
-                filter: "blur(1px)",
+                pointerEvents: "none",
+                willChange: "transform",
                 animation: `${p.animationName} ${p.animationDuration}s ease-in-out ${p.animationDelay}s infinite`,
                 "--r": `${p.rotation}deg`,
               } as React.CSSProperties

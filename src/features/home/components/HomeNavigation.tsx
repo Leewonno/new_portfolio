@@ -44,7 +44,7 @@ export function HomeNavigation() {
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
   const [section, setSection] = useState<"portfolio" | "intro">("intro");
-  const translateY = useScrollDirection(5, 2, 300, 50);
+  const translateY = useScrollDirection(5, 2, 300, 100);
 
   const handleNextSection = (type: "prev" | "next") => {
     let id: "portfolio" | "intro" | null = null;
