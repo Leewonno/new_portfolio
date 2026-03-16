@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 
 interface HomeNavigationButtonProps {
@@ -17,9 +17,9 @@ function HomeNavigationButton({
   return (
     <button
       type="button"
-      onClick={handleAction}
-      disabled={disabled}
-      className="transition duration-200 border border-transparent cursor-pointer p-1 rounded-4xl bg-[rgba(255,255,255,0.25)] hover:border-white hover:-translate-y-0.5 disabled:cursor-not-allowed"
+      onClick={disabled ? undefined : handleAction}
+      aria-disabled={disabled}
+      className={`transition duration-200 border border-transparent p-1 rounded-4xl bg-[rgba(255,255,255,0.25)] hover:border-white hover:-translate-y-0.5 ${disabled ? "opacity-40 cursor-not-allowed" : "cursor-pointer"}`}
       aria-label={`Scroll Down to ${type === "prev" ? "Prev" : "Next"} Section`}
     >
       <svg
@@ -45,15 +45,39 @@ export function HomeNavigation() {
   const [section, setSection] = useState<"portfolio" | "intro">("intro");
   const translateY = useScrollDirection(5, 2, 300, 100);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setSection(entry.target.id as "portfolio" | "intro");
+          }
+        }
+      },
+      { threshold: 0.5 },
+    );
+
+    const intro = document.getElementById("intro");
+    const portfolio = document.getElementById("portfolio");
+    if (intro) observer.observe(intro);
+    if (portfolio) observer.observe(portfolio);
+
+    return () => observer.disconnect();
+  }, []);
+
   const handleNextSection = (type: "prev" | "next") => {
     let id: "portfolio" | "intro" | null = null;
 
-    if (type === "prev" && section === "portfolio") {
-      id = "intro";
-      setSection("intro");
-    } else if (type === "next" && section === "intro") {
-      id = "portfolio";
-      setSection("portfolio");
+    if (type === "prev") {
+      if (section === "portfolio") {
+        id = "intro";
+        setSection("intro");
+      }
+    } else if (type === "next") {
+      if (section === "intro") {
+        id = "portfolio";
+        setSection("portfolio");
+      }
     }
 
     if (!id) return;
