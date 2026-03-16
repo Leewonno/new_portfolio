@@ -19,13 +19,11 @@ function HomeNavigationButton({
       type="button"
       onClick={disabled ? undefined : handleAction}
       aria-disabled={disabled}
-      className={`transition duration-200 border border-transparent p-1 rounded-4xl bg-[rgba(255,255,255,0.25)] hover:border-white hover:-translate-y-0.5 ${disabled ? "opacity-40 cursor-not-allowed" : "cursor-pointer"}`}
+      className={`w-6.25 h-6.25 sm:w-8 sm:h-8 transition duration-200 border border-transparent p-1 rounded-4xl bg-[rgba(255,255,255,0.25)] hover:border-white hover:-translate-y-0.5 ${disabled ? "opacity-40 cursor-not-allowed" : "cursor-pointer"}`}
       aria-label={`Scroll Down to ${type === "prev" ? "Prev" : "Next"} Section`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        width="25"
-        height="25"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

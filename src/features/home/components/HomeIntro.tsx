@@ -73,15 +73,15 @@ export function HomeIntro() {
   return (
     <div
       id="intro"
-      className="w-full min-h-screen py-20 flex flex-col gap-16 justify-center items-center relative"
+      className="w-full min-h-screen py-20 px-5 sm:px-0 flex flex-col gap-16 justify-center items-center relative"
     >
-      <div className="flex gap-8">
+      <div className="flex gap-6 sm:gap-8">
         {LOGO_LETTERS.map((v) => {
           return (
             <Image
               key={`logo_letters_${v.id}`}
               src={v.src}
-              className="h-25 w-auto drop-shadow-[0_0_5px_white] cursor-pointer select-none hover:drop-shadow-[0_0_10px_white] transition duration-400"
+              className="h-20 sm:h-25 w-auto drop-shadow-[0_0_5px_white] cursor-pointer select-none transition duration-400 hover:drop-shadow-[0_0_10px_white]"
               alt="logo_letters"
               title={v.title}
               id={v.id}

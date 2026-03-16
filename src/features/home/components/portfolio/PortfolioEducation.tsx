@@ -24,8 +24,12 @@ export function PortfolioEducation() {
               <span className="text-xs text-white/40">{edu.period}</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-sm text-white/50">{edu.major}</span>
-              <span className="text-sm text-white/40">{edu.gpa}</span>
+              <span className="text-xs sm:text-sm text-white/50">
+                {edu.major}
+              </span>
+              <span className="text-xs sm:text-sm text-white/40">
+                {edu.gpa}
+              </span>
             </div>
           </div>
         ))}

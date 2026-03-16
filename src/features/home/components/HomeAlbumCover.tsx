@@ -31,7 +31,7 @@ export const HomeAlbumCover = memo(function HomeAlbumCover({
 
   return (
     <div
-      className="group fixed bottom-28 right-8 rounded-xl select-none shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5 ease-in-out"
+      className="hidden sm:flex group fixed bottom-28 right-8 rounded-xl select-none shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5 ease-in-out"
       style={{ transform: `translateY(${translateY}px)` }}
     >
       <Image

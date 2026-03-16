@@ -4,7 +4,9 @@ export function PortfolioIntro() {
       <p className="text-sm text-white/50 tracking-widest uppercase">
         Frontend Engineer
       </p>
-      <h1 className="text-4xl font-semibold tracking-tight">WONNO LEE</h1>
+      <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+        WONNO LEE
+      </h1>
     </div>
   );
 }
