@@ -1,6 +1,7 @@
 "use client";
 
 import { forwardRef, useRef, useState } from "react";
+import { useScrollDirection } from "@/hooks/useScrollDirection";
 
 interface HomeNavigationButtonProps {
   ref: HTMLButtonElement;
@@ -43,6 +44,7 @@ export function HomeNavigation() {
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
   const [section, setSection] = useState<"portfolio" | "intro">("intro");
+  const translateY = useScrollDirection(5, 2, 300, 50);
 
   const handleNextSection = (type: "prev" | "next") => {
     let id: "portfolio" | "intro" | null = null;
@@ -70,7 +72,10 @@ export function HomeNavigation() {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 flex gap-2 text-white text-sm p-2 rounded-4xl select-none bg-[rgba(255,255,255,0.12)] backdrop-blur-lg border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200">
+    <div
+      className="fixed bottom-8 right-8 flex gap-2 text-white text-sm p-2 rounded-4xl select-none bg-[rgba(255,255,255,0.12)] backdrop-blur-lg border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-300 ease-in-out"
+      style={{ transform: `translateY(${translateY}px)` }}
+    >
       <HomeNavigationButton
         ref={prevRef}
         type="prev"
