@@ -14,7 +14,7 @@ import ship from "@/assets/images/ship.svg";
 import star from "@/assets/images/star.svg";
 import { HomeBackgroundDefault } from "./HomeBackgroundDefault";
 import { HomeBackgroundTheme } from "./HomeBackgroundTheme";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HomeAlbumCover } from "./HomeAlbumCover";
 
 const LOGO_LETTERS = [
@@ -57,9 +57,39 @@ function HomeIntroMessage({ index }: { index: number }) {
   return (
     <div
       key={index}
-      className="text-white [text-shadow:0_0px_5px_rgba(255,255,255,0.6)] text-sm p-3 px-4 select-none animate-[slide-down_1s_ease-out_forwards]"
+      className="relative text-white [text-shadow:0_0px_5px_rgba(255,255,255,0.6)] text-sm p-3 px-4 select-none animate-[slide-down_1s_ease-out_forwards]"
     >
       {BG_MESSAGES[index]}
+
+      {index === 5 && (
+        <span className="absolute top-20 left-1/2 -translate-x-1/2 opacity-0 animate-[fade-in_0.3s_ease-out_1.5s_forwards]">
+          <button
+            type="button"
+            onClick={() =>
+              document
+                .getElementById("portfolio")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="rounded-full border text-white hover:text-white transition-colors animate-bounce cursor-pointer"
+            aria-label="포트폴리오 섹션으로 이동"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+        </span>
+      )}
     </div>
   );
 }
@@ -72,6 +102,15 @@ export function HomeIntro() {
     y: 0,
   });
   const isAnimating = useRef(false);
+
+  useEffect(() => {
+    const handler = () => {
+      setBgIndex(0);
+      setPrevBgIndex(0);
+    };
+    window.addEventListener("reset-bg", handler);
+    return () => window.removeEventListener("reset-bg", handler);
+  }, []);
 
   const handleClick = (e: React.MouseEvent) => {
     if (isAnimating.current) return;

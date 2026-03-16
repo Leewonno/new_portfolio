@@ -91,6 +91,26 @@ export function HomeNavigation() {
       className="fixed bottom-8 right-6 sm:right-8 flex gap-2 text-white text-sm p-2 rounded-4xl select-none bg-[rgba(255,255,255,0.12)] backdrop-blur-sm border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0,0,0,0.15)] transition-transform duration-300 ease-in-out"
       style={{ transform: `translateY(${translateY}px)` }}
     >
+      <button
+        type="button"
+        onClick={() => window.dispatchEvent(new CustomEvent("reset-bg"))}
+        className="w-6.25 h-6.25 sm:w-8 sm:h-8 transition duration-200 border border-transparent p-1 rounded-4xl bg-[rgba(255,255,255,0.25)] hover:border-white hover:-translate-y-0.5 cursor-pointer"
+        aria-label="새로고침"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+          <path d="M3 3v5h5" />
+        </svg>
+      </button>
       <HomeNavigationButton
         type="prev"
         disabled={section === "intro"}
