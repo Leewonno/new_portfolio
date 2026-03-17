@@ -50,7 +50,7 @@ const BG_MESSAGES = [
   "걸그룹 엔믹스를 좋아하는 개발자입니다.",
   "무대에서 빛나는 엔믹스처럼",
   "코드를 통해 사용자에게 즐거움을 주는",
-  "프론트엔드 엔지니어가 되겠습니다.",
+  "프론트엔드 엔지니어로 기여하겠습니다.",
 ];
 
 function HomeIntroMessage({ index }: { index: number }) {
@@ -62,7 +62,7 @@ function HomeIntroMessage({ index }: { index: number }) {
       {BG_MESSAGES[index]}
 
       {index === 5 && (
-        <span className="absolute top-20 left-1/2 -translate-x-1/2 opacity-0 animate-[fade-in_0.3s_ease-out_1.5s_forwards]">
+        <span className="absolute top-25 left-1/2 -translate-x-1/2 opacity-0 animate-[fade-in_0.3s_ease-out_1.5s_forwards]">
           <button
             type="button"
             onClick={() =>
