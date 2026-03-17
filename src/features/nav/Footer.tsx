@@ -70,13 +70,12 @@ export function Footer() {
       {/* 저작권 + 제작 스택 */}
       <div className="flex flex-col items-center gap-1">
         <p>© 2026 이원노. All rights reserved.</p>
-        <p>Built with Next.js</p>
       </div>
 
       {/* 이전 버전 */}
       <div className="flex items-center gap-3">
         <span className="uppercase px-2.5 py-1 rounded-md border border-[rgba(255,255,255,0.12)] text-white/50">
-          Previous
+          이전 포트폴리오
         </span>
         {[
           { label: "v1", href: "https://portfolio-67029.web.app/ver1" },
