@@ -62,7 +62,7 @@ function HomeIntroMessage({ index }: { index: number }) {
       {BG_MESSAGES[index]}
 
       {index === 5 && (
-        <span className="absolute top-20 left-1/2 -translate-x-1/2 opacity-0 animate-[fade-in_0.3s_ease-out_1.5s_forwards]">
+        <span className="absolute top-25 left-1/2 -translate-x-1/2 opacity-0 animate-[fade-in_0.3s_ease-out_1.5s_forwards]">
           <button
             type="button"
             onClick={() =>
