@@ -49,14 +49,41 @@ const PROJECTS: ProjectDetail[] = [
   },
 ];
 
-export function PortfolioProjects() {
+const ALADIN: ProjectDetail[] = [
+  ...PROJECTS,
+  {
+    name: "노벨컷",
+    description: "웹소설 연재 사이트",
+    detail:
+      "NOVELCUT(노벨컷) 은 사용자가 직접 웹소설을 작성하고 공유할 수 있는 연재 플랫폼입니다. 네이버웹툰의 컷툰 서비스처럼 컷 형식 보기 방식을 도입했습니다.",
+    techStack: [
+      "React",
+      "JavaScript",
+      "Styled Components",
+      "Node.js",
+      "Firebase",
+      "MySQL",
+    ],
+    link: "https://novelcut-1f6f2.web.app/",
+    github: "https://github.com/Leewonno/novelcut",
+    works: [
+      "소설은 문단 단위로 분리해 네이버 컷툰 형식의 웹소설 뷰어 개발",
+      "Atomic Design 패턴 기반 컴포넌트 구조 설계로 재사용성과 확장성 확보",
+      "배포 비용 절감을 위한 AWS → Firebase로 프로젝트 리팩토링",
+    ],
+  },
+];
+
+export function PortfolioProjects({ q }: { q?: string }) {
+  const displayList = q === "aladin" ? ALADIN : PROJECTS;
+
   return (
     <div className="flex flex-col gap-4">
       <h2 className="text-xs text-white/40 tracking-widest uppercase">
         Projects
       </h2>
       <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2">
-        {PROJECTS.map((project) => (
+        {displayList.map((project) => (
           <PortfolioModal key={project.name} project={project}>
             <button
               type="button"
