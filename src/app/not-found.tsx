@@ -61,9 +61,9 @@ const HIDDEN_PROJECTS: ProjectDetail[] = [
     link: "https://novelcut-1f6f2.web.app/",
     github: "https://github.com/Leewonno/novelcut",
     works: [
-      "소설을 문단 단위로 분리해 슬라이드 방식으로 보여주는 뷰어 개발",
+      "소설은 문단 단위로 분리해 네이버 컷툰 형식의 웹소설 뷰어 개발",
       "Atomic Design 패턴 기반 컴포넌트 구조 설계로 재사용성과 확장성 확보",
-      "배포 비용 절감을 위 한 AWS → Firebase로 프로젝트 리팩토링",
+      "배포 비용 절감을 위한 AWS → Firebase로 프로젝트 리팩토링",
     ],
   },
   {

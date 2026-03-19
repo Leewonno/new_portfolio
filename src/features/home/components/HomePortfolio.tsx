@@ -5,7 +5,7 @@ import { PortfolioIntro } from "./portfolio/PortfolioIntro";
 import { PortfolioProjects } from "./portfolio/PortfolioProjects";
 import { PortfolioTechStack } from "./portfolio/PortfolioTechStack";
 
-export function HomePortfolio() {
+export function HomePortfolio({ q }: { q?: string }) {
   return (
     <div
       className="w-full min-h-screen py-20 px-5 sm:px-0 flex flex-col items-center justify-center"
@@ -16,7 +16,7 @@ export function HomePortfolio() {
         <PortfolioTechStack />
         <PortfolioExperience />
         <PortfolioEducation />
-        <PortfolioProjects />
+        <PortfolioProjects q={q} />
         <PortfolioContact />
       </div>
     </div>
