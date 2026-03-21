@@ -9,7 +9,7 @@ const PROJECTS: ProjectDetail[] = [
 
     description: "함께 만들어가는 위키 사이트",
     detail:
-      "함께 만들어가는 위키 사이트입니다. 직접 개발한 마크다운 에디터를 적용하였습니다.",
+      "노바위키는 기존 위키의 느리고 단절된 소통 구조를 개선하기 위해 시작된 플랫폼입니다. Supabase Realtime Broadcast 기반의 채팅 기능을 통해 이용자 간 실시간 소통이 가능하며, 자체 개발한 마크다운 에디터로 보다 편안하고 직관적인 편집 환경을 제공합니다.",
     techStack: [
       "Next.js",
       "TypeScript",
@@ -22,6 +22,7 @@ const PROJECTS: ProjectDetail[] = [
     github: "https://github.com/Leewonno/novawiki",
     works: [
       "위키 시스템 구현",
+      "Supabase Realtime Broadcast 기반 실시간 채팅 기능 구현",
       "마크다운 에디터 구현",
       "마크다운 파싱 라이브러리 remark와 호환되는 마크다운 파서 구현",
     ],
@@ -30,7 +31,8 @@ const PROJECTS: ProjectDetail[] = [
     name: "노벨피디아",
 
     description: "소설 · 만화를 리뷰하는 위키 사이트",
-    detail: "소설 · 만화 정보를 공유하고 리뷰할 수 있는 위키 사이트 입니다.",
+    detail:
+      "노벨피디아는 졸업작품이자 저의 첫 웹 프로젝트로 소설 · 만화 정보를 공유하고 리뷰할 수 있는 위키 사이트 입니다.",
     techStack: [
       "JavaScript",
       "JQuey",
