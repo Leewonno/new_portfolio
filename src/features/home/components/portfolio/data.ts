@@ -30,9 +30,9 @@ export const PROJECTS: ProjectDetail[] = [
           "Next.js의 fetch 캐싱을 이용했으나, 데이터 수정 이후에도 이전(Stale) 데이터가 노출되는 문제가 있었습니다. 이를 해결하기 위해 TanStack Query의 prefetchQuery를 도입하고, 데이터 변경 시 invalidateQueries를 통해 캐시를 갱신하도록 개선했습니다. 그 결과 검색창, 문서 상세, 홈페이지 전반에 최신(fresh) 데이터가 일관되게 반영되었습니다.",
       },
       {
-        title: "문서 비교(Diff) 페이지 개발",
+        title: "비효율적인 문서 변경 추적 문제 (Myers Diff 도입)",
         content:
-          "문서 비교 기능 구현 과정에서 Git의 diff 방식에 착안해 Myers 알고리즘을 채택했으며, 해당 알고리즘을 제공하는 npm 패키지를 활용해 Diff 기능을 구현했습니다.",
+          "문서 변경을 효율적으로 추적하기 위해 Git의 diff 방식을 착안했습니다. Myers 알고리즘을 기반으로 한 npm 패키지를 적용해 사용자에게 변경 내역을 효율적으로 제공하도록 개선했습니다.",
       },
     ],
   },
