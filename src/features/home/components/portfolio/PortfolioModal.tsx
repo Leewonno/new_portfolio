@@ -141,7 +141,7 @@ export function PortfolioModal({ project, children }: PortfolioModalProps) {
                   key={`${issue.title}_${index}`}
                   className="flex flex-col gap-2"
                 >
-                  <div className="flex gap-2 items-center">
+                  <div className="flex flex-col items-start sm:flex-row gap-2 sm:items-center">
                     <span className="px-3 py-1 text-xs rounded-full text-green-300 bg-[rgba(0,255,17,0.08)] border border-[rgba(0,255,17,0.12)]">
                       ISSUE
                     </span>
