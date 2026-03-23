@@ -76,7 +76,7 @@ export function PortfolioContact() {
       <a
         href="/resume.pdf"
         download
-        className="w-fit flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-[rgba(255,255,255,0.12)] text-sm text-white/60 hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors"
+        className="w-fit mt-2 flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg border border-[rgba(255,255,255,0.12)] text-sm text-white/60 hover:text-white hover:border-[rgba(255,255,255,0.3)] transition-colors"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
