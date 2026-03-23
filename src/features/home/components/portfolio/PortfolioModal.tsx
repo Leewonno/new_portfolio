@@ -120,14 +120,36 @@ export function PortfolioModal({ project, children }: PortfolioModalProps) {
               <span className="text-xs text-white/40 tracking-widest uppercase">
                 Works
               </span>
-              <ul className="flex flex-col gap-2">
+              <ul className="flex flex-col gap-2 pl-5 list-disc list-outside">
                 {project.works.map((work) => (
-                  <li key={work} className="flex gap-2 text-sm text-white/70">
-                    <span className="text-white/30 shrink-0">—</span>
+                  <li key={work} className="text-sm text-white/70">
                     <span>{work}</span>
                   </li>
                 ))}
               </ul>
+            </div>
+          )}
+
+          {/* 이슈 및 해결 내용 */}
+          {project.issues && project.issues.length > 0 && (
+            <div className="flex flex-col gap-3">
+              <span className="text-xs text-white/40 tracking-widest uppercase">
+                ISSUES
+              </span>
+              {project.issues.map((issue, index) => (
+                <div
+                  key={`${issue.title}_${index}`}
+                  className="flex flex-col gap-2"
+                >
+                  <div className="flex gap-2 items-center">
+                    <span className="px-3 py-1 text-xs rounded-full text-green-300 bg-[rgba(0,255,17,0.08)] border border-[rgba(0,255,17,0.12)]">
+                      ISSUE
+                    </span>
+                    <h2 className="text-sm text-white/70">{issue.title}</h2>
+                  </div>
+                  <span className="text-sm text-white/70">{issue.content}</span>
+                </div>
+              ))}
             </div>
           )}
 
