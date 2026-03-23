@@ -32,7 +32,7 @@ export const PROJECTS: ProjectDetail[] = [
       {
         title: "비효율적인 문서 변경 추적 문제 (Myers Diff 도입)",
         content:
-          "문서 변경을 효율적으로 추적하기 위해 Git의 diff 방식을 착안했습니다. Myers 알고리즘을 기반으로 한 npm 패키지를 적용해 사용자에게 변경 내역을 효율적으로 제공하도록 개선했습니다.",
+          "비교 페이지에서 문서 변경을 효율적으로 추적하기 위해 Git의 diff 방식을 참고했습니다. Myers diff 알고리즘 기반 npm 패키지를 적용해 사용자에게 변경 내역을 효율적으로 제공하도록 개선했습니다.",
       },
     ],
   },
