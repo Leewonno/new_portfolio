@@ -16,4 +16,10 @@ export interface ProjectDetail {
   link?: string;
   github?: string;
   works?: string[];
+  issues?: IssueType[];
+}
+
+export interface IssueType {
+  title: string;
+  content: string;
 }
