@@ -17,6 +17,7 @@ export interface ProjectDetail {
   github?: string;
   works?: string[];
   issues?: IssueType[];
+  videos?: string;
 }
 
 export interface IssueType {
