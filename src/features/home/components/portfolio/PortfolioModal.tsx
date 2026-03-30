@@ -50,6 +50,32 @@ export function PortfolioModal({ project, children }: PortfolioModalProps) {
                   </svg>
                 </a>
               )}
+              {project.videos && (
+                <a
+                  href={project.videos}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/40 hover:text-white transition-colors mt-1"
+                  aria-label={`${project.name} 데모 영상`}
+                >
+                  <span className="sr-only">{project.name} 데모 영상</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
+                  </svg>
+                </a>
+              )}
               {project.github && (
                 <a
                   href={project.github}

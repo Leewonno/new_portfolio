@@ -15,8 +15,8 @@ export function HomePortfolio({ q }: { q?: string }) {
         <PortfolioIntro />
         <PortfolioTechStack />
         <PortfolioExperience />
-        <PortfolioEducation />
         <PortfolioProjects q={q} />
+        <PortfolioEducation />
         <PortfolioContact />
       </div>
     </div>
