@@ -45,7 +45,7 @@ export function HomeBackgroundTheme({
 
   return (
     <div
-      className={`${className} fixed inset-x-0 top-0 h-dvh z-[-1] overflow-x-hidden animate-[circle-reveal_2s_ease-out_forwards] will-change-[clip-path] contain-[paint]`}
+      className={`${className} fixed inset-0 z-[-1] animate-[circle-reveal_2s_ease-out_forwards] will-change-[clip-path] contain-[paint]`}
       style={{ ...style, transform: "translateZ(0)" }}
     >
       {icon &&
