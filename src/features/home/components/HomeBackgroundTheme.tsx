@@ -45,32 +45,63 @@ export function HomeBackgroundTheme({
 
   return (
     <div
-      className={`${className} fixed inset-x-0 top-0 h-dvh z-[-1] overflow-hidden animate-[circle-reveal_2s_ease-out_forwards] will-change-[clip-path] `}
+      className={`${className} fixed inset-0 h-dvh z-[-1] overflow-hidden`}
       style={{ ...style, transform: "translateZ(0)" }}
     >
-      {icon &&
-        particles.map((p) => (
-          <Image
-            key={p.id}
-            src={icon}
-            alt="bgIcon"
-            width={p.size}
-            height={p.size}
-            style={
-              {
-                position: "absolute",
-                left: `${p.x}%`,
-                top: `${p.y}%`,
-                transform: `translate(-50%, -50%) rotate(${p.rotation}deg)`,
-                opacity: p.opacity,
-                pointerEvents: "none",
-                willChange: "transform",
-                animation: `${p.animationName} ${p.animationDuration}s ease-in-out ${p.animationDelay}s infinite`,
-                "--r": `${p.rotation}deg`,
-              } as React.CSSProperties
-            }
-          />
-        ))}
+      <div className="w-full h-full animate-[circle-reveal_2s_ease-out_forwards] will-change-[clip-path]">
+        {/* particles */}
+        {icon &&
+          particles.map((p) => (
+            <Image
+              key={p.id}
+              src={icon}
+              alt="bgIcon"
+              width={p.size}
+              height={p.size}
+              style={
+                {
+                  position: "absolute",
+                  left: `${p.x}%`,
+                  top: `${p.y}%`,
+                  transform: `translate(-50%, -50%) rotate(${p.rotation}deg)`,
+                  opacity: p.opacity,
+                  pointerEvents: "none",
+                  willChange: "transform",
+                  animation: `${p.animationName} ${p.animationDuration}s ease-in-out ${p.animationDelay}s infinite`,
+                  "--r": `${p.rotation}deg`,
+                } as React.CSSProperties
+              }
+            />
+          ))}
+      </div>
     </div>
+    // <div
+    //   className={`${className} fixed inset-x-0 top-0 h-dvh z-[-1] overflow-hidden animate-[circle-reveal_2s_ease-out_forwards] will-change-[clip-path]`}
+    //   style={{ ...style, transform: "translateZ(0)" }}
+    // >
+    //   {icon &&
+    //     particles.map((p) => (
+    //       <Image
+    //         key={p.id}
+    //         src={icon}
+    //         alt="bgIcon"
+    //         width={p.size}
+    //         height={p.size}
+    //         style={
+    //           {
+    //             position: "absolute",
+    //             left: `${p.x}%`,
+    //             top: `${p.y}%`,
+    //             transform: `translate(-50%, -50%) rotate(${p.rotation}deg)`,
+    //             opacity: p.opacity,
+    //             pointerEvents: "none",
+    //             willChange: "transform",
+    //             animation: `${p.animationName} ${p.animationDuration}s ease-in-out ${p.animationDelay}s infinite`,
+    //             "--r": `${p.rotation}deg`,
+    //           } as React.CSSProperties
+    //         }
+    //       />
+    //     ))}
+    // </div>
   );
 }
