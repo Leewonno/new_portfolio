@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { PortfolioModal } from "@/features";
 import type { ProjectDetail } from "@/features";
+import { PortfolioModal } from "@/features";
 
 const HIDDEN_PROJECTS: ProjectDetail[] = [
   {

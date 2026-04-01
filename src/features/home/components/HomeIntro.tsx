@@ -48,7 +48,7 @@ const BG_MESSAGES = [
   "👆 문자를 순서대로 클릭해 보세요",
   "안녕하세요.",
   "걸그룹 엔믹스를 좋아하는 개발자입니다.",
-  "무대에서 빛나는 엔믹스처럼",
+  "무대에서 즐거움을 주는 엔믹스처럼",
   "코드를 통해 사용자에게 즐거움을 주는",
   "프론트엔드 엔지니어로 기여하겠습니다.",
 ];
@@ -150,7 +150,7 @@ export function HomeIntro() {
         })}
       </div>
       {bgIndex === 0 ? (
-        <div className="text-white text-sm p-3 px-4 rounded-4xl select-none bg-[rgba(255,255,255,0.28)] backdrop-blur-sm border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-white">
+        <div className="text-white text-sm p-3 px-4 rounded-4xl select-none backdrop-blur-sm border border-[rgba(255,255,255,0.14)] shadow-[0px_8px_32px_rgba(0, 0, 0, 0.15)] transition-transform duration-200 hover:-translate-y-0.5 hover:border-white">
           {BG_MESSAGES[0]}
         </div>
       ) : (

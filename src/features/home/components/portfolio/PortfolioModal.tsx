@@ -72,7 +72,11 @@ export function PortfolioModal({ project, children }: PortfolioModalProps) {
                     aria-hidden="true"
                   >
                     <circle cx="12" cy="12" r="10" />
-                    <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none" />
+                    <polygon
+                      points="10 8 16 12 10 16 10 8"
+                      fill="currentColor"
+                      stroke="none"
+                    />
                   </svg>
                 </a>
               )}
@@ -158,22 +162,39 @@ export function PortfolioModal({ project, children }: PortfolioModalProps) {
 
           {/* 이슈 및 해결 내용 */}
           {project.issues && project.issues.length > 0 && (
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4">
               <span className="text-xs text-white/40 tracking-widest uppercase">
                 ISSUES
               </span>
-              {project.issues.map((issue, index) => (
-                <div
-                  key={`${issue.title}_${index}`}
-                  className="flex flex-col gap-2"
-                >
-                  <div className="flex flex-col items-start sm:flex-row gap-2 sm:items-center">
-                    <span className="px-3 py-1 text-xs rounded-full text-green-300 bg-[rgba(0,255,17,0.08)] border border-[rgba(0,255,17,0.12)]">
-                      ISSUE
-                    </span>
-                    <h2 className="text-sm text-white/70">{issue.title}</h2>
+              {project.issues.map((item, index) => (
+                <div key={item.issue.slice(0, 20)} className="flex gap-3">
+                  {/* 타임라인 트랙 */}
+                  <div className="flex flex-col items-center pt-1 shrink-0">
+                    <div className="w-2 h-2 rounded-full border border-white/40 bg-white/20" />
+                    {index < (project.issues?.length ?? 0) - 1 && (
+                      <div className="w-px flex-1 mt-1 bg-white/8" />
+                    )}
                   </div>
-                  <span className="text-sm text-white/70">{issue.content}</span>
+                  {/* 콘텐츠 */}
+                  <div className="flex flex-col gap-2 pb-4">
+                    {item.title && (
+                      <span className="text-sm font-semibold text-white/80">
+                        {item.title}
+                      </span>
+                    )}
+                    <div className="text-sm text-white/60 leading-relaxed">
+                      <span className="mt-0.5 mr-2 shrink-0 px-2 py-0.5 text-[10px] rounded-full text-red-300 bg-[rgba(255,80,80,0.1)] border border-[rgba(255,80,80,0.2)] uppercase">
+                        Issue
+                      </span>
+                      {item.issue}
+                    </div>
+                    <div className="text-sm text-white/60 leading-relaxed">
+                      <span className="mt-0.5 mr-2 shrink-0 px-2 py-0.5 text-[10px] rounded-full text-green-300 bg-[rgba(0,200,80,0.1)] border border-[rgba(0,200,80,0.2)] uppercase">
+                        Solve
+                      </span>
+                      {item.solve}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
