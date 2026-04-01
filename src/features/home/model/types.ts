@@ -22,5 +22,6 @@ export interface ProjectDetail {
 
 export interface IssueType {
   title: string;
-  content: string;
+  issue: string;
+  solve: string;
 }
