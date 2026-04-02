@@ -1,13 +1,13 @@
 const EXPERIENCES = [
   {
     company: "이로운소프트",
-    role: "Frontend Engineer",
+    role: "Frontend Developer",
     period: "2025.12 ~ 2026.03",
     description: "ERP 서비스 개발",
   },
   {
     company: "서울소프트",
-    role: "Fullstack Engineer",
+    role: "Fullstack Developer",
     period: "2024.04 ~ 2025.11",
     description: "ERP 서비스 개발",
   },
@@ -30,7 +30,8 @@ export function ResumeExperience() {
               <span className="text-xs text-white/40">{exp.period}</span>
             </div>
             <span className="text-xs sm:text-sm text-white/50">
-              {exp.role} · {exp.description}
+              {exp.role}
+              {/*  · {exp.description} */}
             </span>
           </div>
         ))}
