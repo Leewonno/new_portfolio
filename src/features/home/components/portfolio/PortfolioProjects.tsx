@@ -7,7 +7,7 @@ export function PortfolioProjects({ q }: { q?: string }) {
   const displayList = q === "aladin" ? ALADIN : PROJECTS;
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 w-full sm:w-150">
       <h2 className="text-xs text-white/40 tracking-widest uppercase">
         Projects
       </h2>

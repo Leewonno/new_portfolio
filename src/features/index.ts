@@ -1,6 +1,7 @@
 // Home
 export { HomeIntro } from "./home/components/HomeIntro";
 export { HomePortfolio } from "./home/components/HomePortfolio";
+export { HomeResume } from "./home/components/HomeResume";
 export { HomeNavigation } from "./home/components/HomeNavigation";
 export { PortfolioModal } from "./home/components/portfolio/PortfolioModal";
 export type { ProjectDetail } from "./home/model/types";

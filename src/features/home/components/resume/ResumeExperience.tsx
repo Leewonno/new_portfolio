@@ -13,7 +13,7 @@ const EXPERIENCES = [
   },
 ];
 
-export function PortfolioExperience() {
+export function ResumeExperience() {
   return (
     <div className="flex flex-col gap-4">
       <h2 className="text-xs text-white/40 tracking-widest uppercase">

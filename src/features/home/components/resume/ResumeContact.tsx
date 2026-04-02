@@ -1,4 +1,4 @@
-export function PortfolioContact() {
+export function ResumeContact() {
   return (
     <div className="flex flex-col gap-4">
       <h2 className="text-xs text-white/40 tracking-widest uppercase">

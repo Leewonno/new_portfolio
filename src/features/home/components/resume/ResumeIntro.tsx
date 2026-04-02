@@ -1,4 +1,4 @@
-export function PortfolioIntro() {
+export function ResumeIntro() {
   return (
     <div className="flex flex-col gap-2">
       <p className="text-sm text-white/50 tracking-widest uppercase">
