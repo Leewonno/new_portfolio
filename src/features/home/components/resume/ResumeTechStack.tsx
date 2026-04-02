@@ -26,7 +26,7 @@ const CATEGORY_STYLE: Record<Category, string> = {
   backend: "bg-[rgba(52,211,153,0.15)] text-emerald-200",
 };
 
-export function PortfolioTechStack() {
+export function ResumeTechStack() {
   return (
     <div className="flex flex-col gap-4">
       <h2 className="text-xs text-white/40 tracking-widest uppercase">

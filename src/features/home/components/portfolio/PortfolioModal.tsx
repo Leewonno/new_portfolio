@@ -18,7 +18,7 @@ export function PortfolioModal({ project, children }: PortfolioModalProps) {
 
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/75 data-[state=open]:animate-[fade-in_0.2s_ease-out] data-[state=closed]:animate-[fade-out_0.15s_ease-in]" />
-        <Dialog.Content className="fixed z-50 top-1/2 left-1/2 w-120 max-w-[90vw] max-h-[80vh] overflow-y-auto p-8 rounded-2xl text-white bg-[linear-gradient(to_bottom,#080810_0%,#04100d_100%)] border border-[rgba(255,255,255,0.12)] shadow-[0px_24px_64px_rgba(0,0,0,0.5)] data-[state=open]:animate-[modal-in_0.25s_ease-out_forwards] data-[state=closed]:animate-[modal-out_0.2s_ease-in_forwards] flex flex-col gap-6 outline-none will-change-[translate,opacity,scale]">
+        <Dialog.Content className="fixed z-50 top-1/2 left-1/2 w-130 max-w-[90vw] max-h-[80vh] overflow-y-auto p-8 rounded-2xl text-white bg-[linear-gradient(to_bottom,#080810_0%,#04100d_100%)] border border-[rgba(255,255,255,0.12)] shadow-[0px_24px_64px_rgba(0,0,0,0.5)] data-[state=open]:animate-[modal-in_0.25s_ease-out_forwards] data-[state=closed]:animate-[modal-out_0.2s_ease-in_forwards] flex flex-col gap-6 outline-none will-change-[translate,opacity,scale]">
           {/* 헤더 */}
           <div className="flex items-start justify-between gap-4">
             <div className="flex items-center gap-2">
@@ -167,7 +167,7 @@ export function PortfolioModal({ project, children }: PortfolioModalProps) {
                 ISSUES
               </span>
               {project.issues.map((item, index) => (
-                <div key={item.issue.slice(0, 20)} className="flex gap-3">
+                <div key={item.title} className="flex gap-3">
                   {/* 타임라인 트랙 */}
                   <div className="flex flex-col items-center pt-1 shrink-0">
                     <div className="w-2 h-2 rounded-full border border-white/40 bg-white/20" />
@@ -182,17 +182,23 @@ export function PortfolioModal({ project, children }: PortfolioModalProps) {
                         {item.title}
                       </span>
                     )}
-                    <div className="text-sm text-white/60 leading-relaxed">
+                    <div className="text-sm text-white/60 leading-relaxed sm:flex sm:items-start">
                       <span className="mt-0.5 mr-2 shrink-0 px-2 py-0.5 text-[10px] rounded-full text-red-300 bg-[rgba(255,80,80,0.1)] border border-[rgba(255,80,80,0.2)] uppercase">
-                        Issue
+                        문제
                       </span>
                       {item.issue}
                     </div>
-                    <div className="text-sm text-white/60 leading-relaxed">
+                    <div className="text-sm text-white/60 leading-relaxed sm:flex sm:items-start">
                       <span className="mt-0.5 mr-2 shrink-0 px-2 py-0.5 text-[10px] rounded-full text-green-300 bg-[rgba(0,200,80,0.1)] border border-[rgba(0,200,80,0.2)] uppercase">
-                        Solve
+                        해결
                       </span>
                       {item.solve}
+                    </div>
+                    <div className="text-sm text-white/60 leading-relaxed sm:flex sm:items-start">
+                      <span className="mt-0.5 mr-2 shrink-0 px-2 py-0.5 text-[10px] rounded-full text-blue-300 bg-[rgba(0,200,80,0.1)] border border-[rgba(0,120,200,0.2)] uppercase">
+                        결과
+                      </span>
+                      {item.result}
                     </div>
                   </div>
                 </div>

@@ -24,4 +24,5 @@ export interface IssueType {
   title: string;
   issue: string;
   solve: string;
+  result: string;
 }

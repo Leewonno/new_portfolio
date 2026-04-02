@@ -40,7 +40,9 @@ function HomeNavigationButton({
 }
 
 export function HomeNavigation() {
-  const [section, setSection] = useState<"portfolio" | "intro">("intro");
+  const [section, setSection] = useState<"portfolio" | "intro" | "resume">(
+    "intro",
+  );
   const translateY = useScrollDirection(5, 2, 300, 100);
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export function HomeNavigation() {
       (entries) => {
         for (const entry of entries) {
           if (entry.isIntersecting) {
-            setSection(entry.target.id as "portfolio" | "intro");
+            setSection(entry.target.id as "portfolio" | "intro" | "resume");
           }
         }
       },
@@ -64,17 +66,23 @@ export function HomeNavigation() {
   }, []);
 
   const handleNextSection = (type: "prev" | "next") => {
-    let id: "portfolio" | "intro" | null = null;
+    let id: "portfolio" | "intro" | "resume" | null = null;
 
     if (type === "prev") {
       if (section === "portfolio") {
         id = "intro";
         setSection("intro");
+      } else if (section === "resume") {
+        id = "portfolio";
+        setSection("portfolio");
       }
     } else if (type === "next") {
       if (section === "intro") {
         id = "portfolio";
         setSection("portfolio");
+      } else if (section === "portfolio") {
+        id = "resume";
+        setSection("resume");
       }
     }
 
@@ -118,7 +126,7 @@ export function HomeNavigation() {
       />
       <HomeNavigationButton
         type="next"
-        disabled={section === "portfolio"}
+        disabled={section === "resume"}
         handleAction={() => handleNextSection("next")}
       />
     </div>
