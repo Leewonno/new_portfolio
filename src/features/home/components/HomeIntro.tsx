@@ -104,6 +104,10 @@ export function HomeIntro() {
   const isAnimating = useRef(false);
 
   useEffect(() => {
+    setCirclePos({
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
+    });
     const handler = () => {
       setBgIndex(0);
       setPrevBgIndex(0);
